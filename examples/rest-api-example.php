@@ -1,5 +1,5 @@
 <?php
-  $API_BASE = 'http://feelme.dulta.net/api/v1';
+  $API_BASE = 'https://feelme.dulta.net/api/v1';
   $PARTNER_KEY = '<please enter your key>';
   $USER_ID = 'some-user-id';
 
@@ -20,7 +20,7 @@
 
     // Show the QR code
     print("<img src=\"http://api.qrserver.com/v1/create-qr-code/?data={$auth_token}\">");
-    print($auth_token);
+    print("<br/><textarea disabled cols='80'>$auth_token</textarea>");
   } else if ($_POST['tip']) {
     // Send the tip
     $curl = curl_init("{$API_BASE}/user/{$USER_ID}/tip?partner_token={$partner_token}");
@@ -35,20 +35,22 @@
     $response = curl_exec($curl);
     curl_close($curl);
 
-    echo "Tip sent!";
+    echo "Tip sent, response: $response";
   }
 ?>
 
 <hr/>
-
-<form method="post">
-  <input type="hidden" name="status" value="1"/>
-  <input type="submit" value="Obtain user status"/>
-</form>
+<h4>API base: <?php echo $API_BASE; ?></h4>
+<h4>User ID: <?php echo $USER_ID; ?></h4>
 
 <form method="post">
   <input type="hidden" name="barcode" value="1"/>
   <input type="submit" value="Show the barcode"/>
+</form>
+
+<form method="post">
+  <input type="hidden" name="status" value="1"/>
+  <input type="submit" value="Obtain user status"/>
 </form>
 
 <form method="post">
