@@ -122,32 +122,6 @@ POST parameters:
     why the tip cannot be sent.
 - ``401 NOT AUTHORIZED`` - partner token is invalid.
 
-#### Getting realtime resource
-
-``GET /api/v1/user/<user-id>/realtime?partner_token=<partner-token>``
-
-##### Parameters
-
-URL parameters:
-- ``user-id`` - performer user id on the partner website
-- ``partner_token`` - partner token previously returned by
-    ``/api/v1/partner/<partner-key>/token`` request
-
-##### Response (JSON)
-
-{
-  realtime_resource_id: 'realtime-resource-id'
-}
-
-This request returns the realtime resource id which should be used with
-FellMe JavaScript SDK.
-
-##### ERRORS
-
-- ``404 NOT FOUND`` - user is not known to the FeelApp system.
-- ``401 NOT AUTHORIZED`` - partner token is invalid.
-
-
 ### Room resource
 
 #### Add user to the room
