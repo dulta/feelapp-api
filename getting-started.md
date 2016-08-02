@@ -1,6 +1,6 @@
 # Getting Started
 
-This document will guide you through process of integrating Feel Subtitles and Feel Apps sysytems.
+This document will guide you through process of integrating Feel Subtitles and Feel Apps systems.
 As a result we are going to get a web page which can play a video in your desktop browser
 and send subtitles to the connected
 bluetooth device via mobile Feel application.
@@ -12,7 +12,7 @@ Result page source code can be found
 
 #### Feel Apps
 
-Feel Apps is a way to connect your webpage to the Bluetooth device via iPhone/Android
+Feel Apps is a way to connect your webpage to a Bluetooth device via iPhone/Android
 mobile application. Your page should have a QR code which is scanned inside the mobile app.
 Then the page can send commands to the mobile app which will be transferred to the bluetooth device.
 
@@ -27,10 +27,10 @@ Complete Feel Apps manual can be found [here](https://github.com/dulta/feelapp-a
 Feel Subtitles is a database of videos and subtitles for the bluetooth devices.
 
 You as a partner can have multiple videos listed in the database and each video can have
-multiple subtiles.
+multiple subtitles.
 
 When you show a video on your webpage you can request subtitles from Feel Subtitles
-databse and play them with JavaScript library we provide.
+database and play them with JavaScript library we provide.
 
 Complete Feel Subtitles API can be found [here](https://github.com/dulta/feel-subs-api).
 
@@ -99,6 +99,10 @@ In this example we are going to use a 3rd party service:
 ```html
 <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $qrcode; ?>">
 ```
+
+Or you could use: 
+* http://jeromeetienne.github.io/jquery-qrcode/
+* https://github.com/davidshimjs/qrcodejs
 
 ### 5. Loading JavaScript library
 
