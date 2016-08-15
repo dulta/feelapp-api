@@ -114,6 +114,8 @@ POST parameters:
 - ``amount`` - tip amount, string (e.g. ``10 coins``)
 - ``duration`` - tip (vibration) duration in seconds, floating point number (e.g. ``2.5``)
 - ``strength`` - tip (vibration) strength in percents, integer (e.g. ``50``)
+- ``customText`` - custom text, string. If specified, the mobile app will only show this text,
+                   sender and amount will be ignored and not displayed in the app.
 
 ##### Possible errors
 
