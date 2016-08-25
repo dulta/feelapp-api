@@ -159,11 +159,11 @@ in sync with subtitles position.
 
 ```JavaScript
 $('#video').on('play', function() {
-  var currentTime = this.currentTime
-  $feel.subs.play(currentTime)
+  var currentTimeInSeconds = this.currentTime
+  $feel.subs.play(currentTimeInSeconds)
 }).on('timeupdate', function() {
-  var currentTime = this.currentTime
-  $feel.subs.timeupdate(currentTime)
+  var currentTimeInSeconds = this.currentTime
+  $feel.subs.timeupdate(currentTimeInSeconds)
 }).on('pause', function() {
   $feel.subs.stop()
 })
