@@ -59,6 +59,19 @@
 
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-info">
+          <div class="panel-body">
+            <p>Please open this page in Android mobile browser.<p>
+            <p>Please make sure you have
+              <a href='https://play.google.com/store/apps/details?id=net.dulta.feelclient'>Feel
+              Client app</a> version 0.0.12 or higher installed on your phone.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-warning">
           <div class="panel-heading">
             <h3 class="panel-title">Feel app platform connection</h3>
