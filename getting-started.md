@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started for interactive video
 
 This document will guide you through process of integrating Feel Subtitles and Feel Apps systems.
 As a result we are going to get a web page which can play a video in your desktop browser
