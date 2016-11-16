@@ -7,7 +7,7 @@
 
   // Obtain Feel Subs token
   //
-  $FEEL_SUBS_SERVER_PATH = 'https://feel-subs.dulta.net';
+  $FEEL_SUBS_SERVER_PATH = 'https://api.pibds.com';
   $FEEL_SUBS_APP_KEY = 'your feel subs app key';
   $json = file_get_contents($FEEL_SUBS_SERVER_PATH . '/api/v1/app/' . $FEEL_SUBS_APP_KEY . '/token');
   $result = json_decode($json);
