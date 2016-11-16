@@ -1,5 +1,5 @@
 <?php
-  $API_BASE = 'https://feelme.dulta.net/api/v1';
+  $API_BASE = 'https://api.feel-app.com/api/v1';
   $PARTNER_KEY = '<please enter your key>';
   $user_id = $_GET['userid'];
   if (!$user_id) {

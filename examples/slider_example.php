@@ -5,7 +5,7 @@
     die();
   }
 
-  $FEEL_APPS_SERVER_PATH = 'https://feelme.dulta.net';
+  $FEEL_APPS_SERVER_PATH = 'https://api.feel-app.com';
   // Obtain Feel Apps partner token
   //
   $PARTNER_KEY = '<your partner key>'; // Replace with your own Feel Apps partner key

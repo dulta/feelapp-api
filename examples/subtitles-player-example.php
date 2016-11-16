@@ -15,7 +15,7 @@
 
   // Obtain Feel Apps partner token
   //
-  $FEEL_APPS_SERVER_PATH = 'https://feelme.dulta.net';
+  $FEEL_APPS_SERVER_PATH = 'https://api.feel-app.com';
   $PARTNER_KEY = 'your feel apps partner key';
   $string = file_get_contents("{$FEEL_APPS_SERVER_PATH}/api/v1/partner/{$PARTNER_KEY}/token");
   $json = json_decode($string, true);
