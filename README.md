@@ -74,6 +74,34 @@ URL parameter
     Note: currently user cannot join more than one room. You have to kick
     the user out of the old room in order to join them to another one.
 
+#### Getting notified about user status
+
+Partners can be notified about user status change via http callback (web hook call).
+In order to do that partner must implement a web page which be called each time user
+status is changed.
+
+You can use following script to submit URL of this page to Feel platform:
+https://github.com/dulta/feelapp-api/blob/master/examples/webhook.php
+
+Please download the script, change $PARTNER_KEY variable, upload it to your local web
+server and open in your browser.
+
+You can also contact us so we change this URL in our database manually.
+
+Each user status change will initiate a POST request to your page.
+User status will be provided in POST variables:
+
+- ``user_id`` - performer user id
+- ``authenticated`` - ``true`` if user is has scanned a QR code with Feel app
+- ``online`` - ``true`` if user is known and has the Feel app running
+- ``devices`` is a list of devices which are connected to the app
+    (e.g. ``['PEARL', 'ONYX']``)
+- ``rooms`` is a list of rooms user currently joined. Each room contains
+    following fields:
+    - room_id - unique room id
+    - read - flag indicating if user can read from this room
+    - write - flag indicating if user can write to this room
+
 #### Request user authorization
 
 ``GET /api/v1/user/<user-id>/auth?partner_token=<partner-token>``
