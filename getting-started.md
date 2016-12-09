@@ -53,7 +53,7 @@ This token is valid for 24 hours and can be used on the front-end.
 In order to get the token please do the following:
 
 ```php
-$FEEL_SUBS_SERVER_PATH = 'https://feel-subs.dulta.net';
+$FEEL_SUBS_SERVER_PATH = 'https://api.pibds.com';
 $FEEL_SUBS_APP_KEY = 'your feel subs app key';
 $json = file_get_contents($FEEL_SUBS_SERVER_PATH . '/api/v1/app/' . $FEEL_SUBS_APP_KEY . '/token');
 $result = json_decode($json);
@@ -72,7 +72,7 @@ Feel Apps Access Token is valid for 24 hours and can be used on the front-end.
 In order to get the token please do the following:
 
 ```php
-$FEEL_APPS_SERVER_PATH = 'https://feelme.dulta.net';
+$FEEL_APPS_SERVER_PATH = 'https://api.feel-app.com';
 $PARTNER_KEY = 'your feel apps partner key';
 $string = file_get_contents("{$FEEL_APPS_SERVER_PATH}/api/v1/partner/{$PARTNER_KEY}/token");
 $json = json_decode($string, true);
