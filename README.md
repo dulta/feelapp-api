@@ -74,13 +74,18 @@ URL parameter
     Note: currently user cannot join more than one room. You have to kick
     the user out of the old room in order to join them to another one.
 
-#### Getting notified about user status
+#### Getting notified about user status (beta)
 
 Partners can be notified about user status change via http callback (web hook call).
-In order to do that partner must implement a web page which be called each time user
-status is changed.
+In order to do that the partner must implement a webhook endpoint web page which will be
+called by Feel platform each time user status is changed.
 
-You can use following script to submit URL of this page to Feel platform:
+This webhook endpoint web page should be published somewhere on the internet and
+Feel platform should be notified about endpoint URL. This URL will be stored
+in the Feel platform database. Every time the status of any user has changed, Feel
+platform will send an HTTP request to the webhook endpoint.
+
+Partners can use following script to submit URL of your webhook endpoint page to Feel platform:
 https://github.com/dulta/feelapp-api/blob/master/examples/webhook.php
 
 Please download the script, change $PARTNER_KEY variable, upload it to your local web
@@ -88,19 +93,19 @@ server and open in your browser.
 
 You can also contact us so we change this URL in our database manually.
 
-Each user status change will initiate a POST request to your page.
+Each user status change will initiate a POST request to your webhook endpoint page.
 User status will be provided in POST variables:
 
 - ``user_id`` - performer user id
-- ``authenticated`` - ``true`` if user is has scanned a QR code with Feel app
-- ``online`` - ``true`` if user is known and has the Feel app running
+- ``authenticated`` - ``true`` if user is has scanned a QR code with Feel app, ``false`` otherwise
+- ``online`` - ``true`` if user is known and has the Feel app running, ``false`` otherwise
 - ``devices`` is a list of devices which are connected to the app
     (e.g. ``['PEARL', 'ONYX']``)
 - ``rooms`` is a list of rooms user currently joined. Each room contains
     following fields:
-    - room_id - unique room id
-    - read - flag indicating if user can read from this room
-    - write - flag indicating if user can write to this room
+    - ``room_id`` - unique room id
+    - ``read`` - flag indicating if user can read from this room
+    - ``write`` - flag indicating if user can write to this room
 
 #### Request user authorization
 
@@ -206,3 +211,21 @@ Returns ``{}`` in case of success
 
 - ``404 NOT FOUND`` - user is not known to the FeelApp system or not in the room.
 - ``401 NOT AUTHORIZED`` - partner token is invalid.
+
+### Supported device models
+
+Feel Platform provides the list of all supported bluetooth device models
+via the following endpoint:
+
+``GET /api/v1/device_models``
+
+No authorization is required to access this endpoint.
+
+The endpoint returns a list of device records. Each record has following fields:
+
+- ``product`` - Bluetooth device model name, e.g. ``Pearl``
+- ``type`` - Bluetooth device type, can be ``Vibrator`` or ``Masturbator``
+- ``manufacturer`` - Bluetooth device manufacturer, e.g. ``Kiiroo``
+
+* Note. This list is not about to be changed often. Please cache the returned value
+for a reasonable amount of time in order to decrease Feel Platform load.
