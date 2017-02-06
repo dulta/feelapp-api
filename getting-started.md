@@ -100,7 +100,7 @@ In this example we are going to use a 3rd party service:
 <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $qrcode; ?>">
 ```
 
-Or you could use: 
+Or you could use:
 * http://jeromeetienne.github.io/jquery-qrcode/
 * https://github.com/davidshimjs/qrcodejs
 
@@ -168,3 +168,17 @@ $('#video').on('play', function() {
   $feel.subs.stop()
 })
  ```
+
+### 9. Disconnecting from JavaScript library
+
+As soon as you are done with video/subtitles playing, you may disconnect from the
+JavaScript library. It will close all realtime connections to Feel Technologies
+servers:
+
+```JavaScript
+$feel.destroy()
+```
+
+This step is completely optional.
+
+You can use `$feel.init` later again to connect to the library.
