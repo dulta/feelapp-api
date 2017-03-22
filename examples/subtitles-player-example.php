@@ -8,15 +8,17 @@
   // Obtain Feel Subs token
   //
   $FEEL_SUBS_SERVER_PATH = 'https://api.pibds.com';
-  $FEEL_SUBS_APP_KEY = 'your feel subs app key';
-  $json = file_get_contents($FEEL_SUBS_SERVER_PATH . '/api/v1/app/' . $FEEL_SUBS_APP_KEY . '/token');
+  $FEEL_SUBS_APP_KEY = 'your feel subs app key'; // Replace with your own Feel Subtitles app key
+  $VIDEO_ID = 'video-id'; // Set video id here
+  $SUBTITLE_ID = '1234'; // Set subtitle id here
+  $json = file_get_contents($FEEL_SUBS_SERVER_PATH . '/api/v1/app/' . $FEEL_SUBS_APP_KEY . '/token?video=' . urlencode($VIDEO_ID));
   $result = json_decode($json);
   $feel_subs_token = $result->apptoken;
 
   // Obtain Feel Apps partner token
   //
   $FEEL_APPS_SERVER_PATH = 'https://api.feel-app.com';
-  $PARTNER_KEY = 'your feel apps partner key';
+  $PARTNER_KEY = 'your feel apps partner key'; // Replace with your own Feel Apps partner key
   $string = file_get_contents("{$FEEL_APPS_SERVER_PATH}/api/v1/partner/{$PARTNER_KEY}/token?user=" . urlencode($user_id));
   $json = json_decode($string, true);
   $feel_apps_token = $json['partner_token'];
@@ -122,9 +124,8 @@
     var FEEL_APPS_USER_ID = '<?php echo $user_id; ?>'
     $feel.init(FEEL_SUBS_TOKEN, FEEL_APPS_TOKEN, FEEL_APPS_USER_ID)
 
-    var videoId = 'video-id' // Set your video id here
-    var subtitleId = '1234'  // Set subtitle id here
-
+    var videoId = '<?php echo $VIDEO_ID; ?>'
+    var subtitleId = '<?php echo $SUBTITLE_ID; ?>'
     // Load subtitles from the server
     $feel.subs.load(videoId, subtitleId, FEEL_APPS_USER_ID)
       .then(function(){
