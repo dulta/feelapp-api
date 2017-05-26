@@ -55,7 +55,8 @@ In order to get the token please do the following:
 ```php
 $FEEL_SUBS_SERVER_PATH = 'https://api.pibds.com';
 $FEEL_SUBS_APP_KEY = 'your feel subs app key';
-$json = file_get_contents($FEEL_SUBS_SERVER_PATH . '/api/v1/app/' . $FEEL_SUBS_APP_KEY . '/token');
+$VIDEO_ID = 'your video ID';
+$json = file_get_contents($FEEL_SUBS_SERVER_PATH . '/api/v1/app/' . $FEEL_SUBS_APP_KEY . '/token?video=' . urlencode($VIDEO_ID));
 $result = json_decode($json);
 $feel_subs_token = $result->apptoken;
 ```
@@ -74,7 +75,8 @@ In order to get the token please do the following:
 ```php
 $FEEL_APPS_SERVER_PATH = 'https://api.feel-app.com';
 $PARTNER_KEY = 'your feel apps partner key';
-$string = file_get_contents("{$FEEL_APPS_SERVER_PATH}/api/v1/partner/{$PARTNER_KEY}/token");
+$user_id = 'current user id';
+$string = file_get_contents("{$FEEL_APPS_SERVER_PATH}/api/v1/partner/{$PARTNER_KEY}/token?user=" . urlencode($user_id)));
 $json = json_decode($string, true);
 $feel_apps_token = $json['partner_token'];
 ```
