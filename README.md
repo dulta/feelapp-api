@@ -170,6 +170,29 @@ POST parameters:
 - ``401 NOT AUTHORIZED`` - partner token is invalid or is not authorized
     for the user.
 
+#### Controlling user device(s)
+
+``POST /api/v1/user/<user-id>/device_speed?partner_token=<partner-token>``
+
+##### Parameters
+
+URL parameters:
+- ``user-id`` - user id on the partner website
+- ``partner_token`` - partner token previously returned by
+    ``/api/v1/partner/<partner-key>/token`` request
+
+POST parameters:
+- ``strength`` - Device(s) movement/vibration strength in percents, integer (e.g. ``50``).
+    Send `0` to stop device(s) movement/vibration.
+
+##### Possible errors
+
+- ``404 NOT FOUND`` - user is offline or is not known to the FeelApp system.
+    You should use ``/api/v1/user/<user-id>/status`` to see the reason
+    why the command cannot be sent.
+- ``401 NOT AUTHORIZED`` - partner token is invalid or is not authorized
+    for the user.
+
 ### Room resource
 
 #### Add user to the room
