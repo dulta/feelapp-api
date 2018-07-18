@@ -12,7 +12,7 @@ Result page source code can be found
 
 #### Feel Apps
 
-Feel Apps is a way to connect your webpage to a Bluetooth device via iPhone/Android
+Feel Apps is a way to connect your webpage to a Bluetooth device via FeelConnect iPhone/Android
 mobile application. Your page should have a QR code which is scanned inside the mobile app.
 Then the page can send commands to the mobile app which will be transferred to the bluetooth device.
 
