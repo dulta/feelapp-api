@@ -71,8 +71,8 @@ of your video subtitles which can be considered as a security problem.
 
 ### Library location
 
-Library v1 is located at
-`https://api.feel-app.com/static/feeljs/1.0/feel.min.js`
+Library v1.1 is located at
+`https://api.feel-app.com/static/feeljs/1.1/feel.min.js`
 
 The library should be included on the desktop (not mobile) versions of your video pages.
 
